@@ -1,85 +1,56 @@
 .main_wrapper {
   background-color: black;
+  color: white;
 }
-@media only screen and (max-width: 2560px) {
-  .main_wrapper {
-    background-position-x: 37vw;
-  }
+.sec_1 {
+  text-transform: uppercase;
+  text-align: center;
 }
-@media only screen and (max-width: 1440px) {
-  .main_wrapper {
-    background-position-x: 81vw;
-  }
+.sec_1list{
+  display: flex;
+  flex-wrap: wrap;
 }
-@media only screen and (max-width: 1024px) {
-  .main_wrapper {
-    background-position-x: 101vw;
-  }
+.sec_1list li{
+margin: 10px;
+font-size: 20px;
+list-style: none;
 }
-@media only screen and (max-width: 768px) {
-  .main_wrapper {
-    background-position-x: -51vw;
-  }
-  .sec_1 {
-    width: 50%;
-  }
-  .smth {
-    width: 100% !important;
-  }
-  .burgerList {
-    display: none;
-  }
-  .burgerList2 {
-    display: block;
-    position: fixed;
-    right: 0;
-    top: 0;
-    width: 100%;
-    flex-direction: column;
-    transition: all 1.5s;
-    transform: translateY(-1500%);
-  }
-  .burgerList2 a {
-    display: inline-block;
-    padding: 5px;
-    text-decoration: none;
-    width: 100%;
-    text-align: center;
-    transition: all 1.5s;
-    background-color: rgba(255, 255, 255, 0.5);
-    color: black !important;
-    z-index: 100;
-  }
-  .burgerList2 a:hover {
-    background-color: brown;
-  }
-  .burger {
-    display: inline-block;
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index: 101 !important;
-  }
+.sec_2imgWrapper img{
+  margin-top: 20px;
 }
-@media only screen and (max-width: 425px) {
-  .main_wrapper {
-    background-position-x: -161vw;
-  }
-  .header_introWrapper {
-    width: 80%;
-  }
-  .sec_1 {
-    width: 100%;
-  }
-  .footerLogoWrapper2 a {
-    width: 20vw;
-  }
-  .footerLogoWrapper a {
-    width: 20vw;
-  }
+.sec_3 p {
+margin-top: 15px;
+margin-bottom: 15px;
 }
-@media only screen and (max-width: 375px) {
-  .main_wrapper {
-    background-position-x: -234vw;
+.sec_3list ul {
+  list-style: none;
+}
+.sec_3list ul li a {
+  display: inline-block;
+  padding: 5px;
+  text-decoration: none;
+  color: brown;
+}
+.sec_3list ul li a:hover{
+  
+  color: rgb(198, 53, 53);
+}
+
+.sec_4 h4 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+@media only screen and (max-width: 1300px) {
+
+  .list-description {
+    width: 50% !important;
   }
+  
+}
+@media only screen and (max-width: 600px) {
+
+  .list-description {
+    width: 80% !important;
+  }
+  
 }

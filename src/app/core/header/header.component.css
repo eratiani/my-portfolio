@@ -28,26 +28,12 @@ h4 {
   background: transparent;
 }
 .header_introWrapper {
-  width: 50vw;
-  color: white;
+ 
   text-transform: capitalize;
-  margin: auto;
+
   text-align: center;
 }
-.burgerList {
-  display: flex;
-  list-style: none;
-}
-.burgerList li a {
-  display: inline-block;
-  padding: 5px;
-  text-decoration: none;
-  color: white;
-  transition: all 2s;
-}
-.burgerList li a:hover {
-  color: rgb(198, 53, 53);
-}
+
 .headerNav {
   display: flex;
   justify-content: space-between;
@@ -79,4 +65,9 @@ h4 {
   25% {
       opacity: 1;
     }
+}
+@media only screen and (max-width: 700px) {
+.paragraph-desc{
+  width: 100% !important;
+}
 }

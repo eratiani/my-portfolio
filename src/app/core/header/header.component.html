@@ -1,80 +1,11 @@
 <header id="header">
-  <nav class="headerNav">
+  <div class="headerNav">
     <div class="navText">
       <p>country</p>
       <h4>georgia/tbilisi</h4>
     </div>
-
-    <ul class="burgerList2">
-      <li>
-        <button (click)="smoothScrollTar($event)" class="1" href="#header">
-          Main
-        </button>
-      </li>
-      <li>
-        <button (click)="smoothScrollTar($event)" class="2" href="#mySkills">
-          Skills
-        </button>
-      </li>
-      <li>
-        <button (click)="smoothScrollTar($event)" class="3" href="#codeExample">
-          Code Example
-        </button>
-      </li>
-      <li>
-        <button (click)="smoothScrollTar($event)" class="4" href="#experience">
-          Experience
-        </button>
-      </li>
-      <li>
-        <button (click)="smoothScrollTar($event)" class="5" href="#contact">
-          Contact
-        </button>
-      </li>
-      <li>
-        <button (click)="smoothScrollTar($event)" class="6" href="#other">
-          Other
-        </button>
-      </li>
-    </ul>
-    <ul class="burgerList">
-      <li>
-        <button (click)="smoothScrollTar($event)" class="1" href="#header">
-          Main
-        </button>
-      </li>
-      <li>
-        <button (click)="smoothScrollTar($event)" class="2" href="#mySkills">
-          Skills
-        </button>
-      </li>
-      <li>
-        <button (click)="smoothScrollTar($event)" class="3" href="#codeExample">
-          Code Example
-        </button>
-      </li>
-      <li>
-        <button (click)="smoothScrollTar($event)" class="4" href="#experience">
-          Experience
-        </button>
-      </li>
-      <li>
-        <button (click)="smoothScrollTar($event)" class="5" href="#contact">
-          Contact
-        </button>
-      </li>
-      <li>
-        <button (click)="smoothScrollTar($event)" class="6" href="#other">
-          Other
-        </button>
-      </li>
-    </ul>
-    <div class="burger">
-      <a class="burgerLing"
-        ><img class="burgerMenu" src="images/burger.png" alt="burger menu"
-      /></a>
-    </div>
-  </nav>
+    <app-navigation-main></app-navigation-main>
+  </div>
 
   <div class="photoWrapper">
     <img class="photoinside" src="images/photo.png" alt="supposed to be me" />
@@ -82,7 +13,7 @@
   <div class="header_introWrapper">
     <h1> <span class="blink_me"> ER</span>EKLE  <span class="blink_me">RA</span>TI<span class="blink_me">A</span>NI</h1>
     <p>aspiring Frontend Developer</p>
-    <p>
+    <p class="w-50 m-auto paragraph-desc">
       I'm self-taught Junior Frontend Developer, who potentially wants to become
       a Fullstack Developer. Right now I have slight experience in the
       field, but I've already finished many training projects. I got my

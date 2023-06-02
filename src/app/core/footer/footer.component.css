@@ -22,3 +22,27 @@ footer {
   max-width: 100%;
   color: transparent;
 }
+.blink_me {
+  animation: 7s linear 1.5s infinite alternate blinker;
+}
+
+@keyframes blinker {
+  0% {
+      opacity: 0;
+    }
+  5% {
+      opacity: 0.5;
+    }
+  10% {
+      opacity: 1;
+    }
+  15% {
+    opacity: 0;
+  }
+  20% {
+      opacity: 0.5;
+    }
+  25% {
+      opacity: 1;
+    }
+}
