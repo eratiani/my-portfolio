@@ -1,0 +1,24 @@
+footer {
+  color: white;
+  background-color: gray;
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+}
+
+.footerLogoWrapper a {
+  display: inline-block;
+  width: 10vw;
+}
+.footerLogoWrapper a img {
+  max-width: 100%;
+  color: transparent;
+}
+.footerLogoWrapper2 a {
+  display: inline-block;
+  width: 10vw;
+}
+.footerLogoWrapper2 a img {
+  max-width: 100%;
+  color: transparent;
+}

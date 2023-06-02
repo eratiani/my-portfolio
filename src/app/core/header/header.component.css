@@ -1,0 +1,58 @@
+.burger {
+  display: none;
+  width: 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: rgba(103, 154, 192, 0.4);
+}
+.burger img {
+  max-width: 100%;
+  height: auto;
+}
+header p,
+h4 {
+  padding: 0.3rem 1rem;
+  text-transform: capitalize;
+  color: white;
+}
+.photoWrapper {
+  width: 30vw;
+  height: auto;
+  margin: auto;
+  background: transparent;
+}
+.photoWrapper img {
+  max-width: 100%;
+  height: auto;
+  background: transparent;
+}
+.header_introWrapper {
+  width: 50vw;
+  color: white;
+  text-transform: capitalize;
+  margin: auto;
+  text-align: center;
+}
+.burgerList {
+  display: flex;
+  list-style: none;
+}
+.burgerList li a {
+  display: inline-block;
+  padding: 5px;
+  text-decoration: none;
+  color: white;
+  transition: all 2s;
+}
+.burgerList li a:hover {
+  color: rgb(198, 53, 53);
+}
+.headerNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.burgerList2 {
+  display: none;
+}

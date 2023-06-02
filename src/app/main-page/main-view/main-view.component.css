@@ -1,0 +1,85 @@
+.main_wrapper {
+  background-color: black;
+}
+@media only screen and (max-width: 2560px) {
+  .main_wrapper {
+    background-position-x: 37vw;
+  }
+}
+@media only screen and (max-width: 1440px) {
+  .main_wrapper {
+    background-position-x: 81vw;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .main_wrapper {
+    background-position-x: 101vw;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .main_wrapper {
+    background-position-x: -51vw;
+  }
+  .sec_1 {
+    width: 50%;
+  }
+  .smth {
+    width: 100% !important;
+  }
+  .burgerList {
+    display: none;
+  }
+  .burgerList2 {
+    display: block;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    flex-direction: column;
+    transition: all 1.5s;
+    transform: translateY(-1500%);
+  }
+  .burgerList2 a {
+    display: inline-block;
+    padding: 5px;
+    text-decoration: none;
+    width: 100%;
+    text-align: center;
+    transition: all 1.5s;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: black !important;
+    z-index: 100;
+  }
+  .burgerList2 a:hover {
+    background-color: brown;
+  }
+  .burger {
+    display: inline-block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 101 !important;
+  }
+}
+@media only screen and (max-width: 425px) {
+  .main_wrapper {
+    background-position-x: -161vw;
+  }
+  .header_introWrapper {
+    width: 80%;
+  }
+  .sec_1 {
+    width: 100%;
+  }
+  .footerLogoWrapper2 a {
+    width: 20vw;
+  }
+  .footerLogoWrapper a {
+    width: 20vw;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .main_wrapper {
+    background-position-x: -234vw;
+  }
+}
