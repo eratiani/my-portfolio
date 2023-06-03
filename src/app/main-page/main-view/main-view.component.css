@@ -6,51 +6,23 @@
   text-transform: uppercase;
   text-align: center;
 }
-.sec_1list{
+.sec_1list {
   display: flex;
   flex-wrap: wrap;
 }
-.sec_1list li{
-margin: 10px;
-font-size: 20px;
-list-style: none;
-}
-.sec_2imgWrapper img{
-  margin-top: 20px;
-}
-.sec_3 p {
-margin-top: 15px;
-margin-bottom: 15px;
-}
-.sec_3list ul {
+.sec_1list li {
+  margin: 10px;
+  font-size: 20px;
   list-style: none;
 }
-.sec_3list ul li a {
-  display: inline-block;
-  padding: 5px;
-  text-decoration: none;
-  color: brown;
-}
-.sec_3list ul li a:hover{
-  
-  color: rgb(198, 53, 53);
-}
 
-.sec_4 h4 {
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
 @media only screen and (max-width: 1300px) {
-
   .list-description {
     width: 50% !important;
   }
-  
 }
 @media only screen and (max-width: 600px) {
-
   .list-description {
     width: 80% !important;
   }
-  
 }
