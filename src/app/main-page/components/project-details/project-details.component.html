@@ -1,0 +1,37 @@
+<div class="cont">
+  <app-header></app-header>
+  <div class="text-info container py-4">
+    <div class="img-wrapper">
+      <img
+        *ngIf="currProject.imgLink"
+        src="../../../../assets/project-{{ currProject.imgLink }}.png"
+        class="card-img-top"
+        alt="{{ currProject.title }}"
+      />
+    </div>
+
+    <div
+      id="`{{ currProject.id }}`"
+      class="card-body d-flex flex-column align-items-center justify-content-end"
+    >
+      <h3 class="card-title">{{ currProject.title }}</h3>
+      <p class="publishDate">created at: {{ currProject.date }}</p>
+      <p>tools used: {{ currProject.tools }}</p>
+      <p class="card-text-paragraph">
+        {{ currProject.description }}
+      </p>
+      <div
+        class="col-xl-3 m-auto d-flex align-items-center justify-content-between"
+      >
+        <a
+          *ngIf="currProject.deploylink"
+          [href]="currProject.deploylink"
+          class="btn btn-primary mx-2"
+          >Visit WebSite</a
+        >
+        <a [href]="currProject.repoLink" class="btn btn-primary">Repository</a>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

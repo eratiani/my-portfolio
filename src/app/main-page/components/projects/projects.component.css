@@ -27,3 +27,21 @@
 .sec_3list ul li a:hover {
   color: rgb(198, 53, 53);
 }
+.arrows {
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  left: 0;
+  right: 0;
+}
+.arrows > img {
+  cursor: pointer;
+}
+.posRel {
+  position: relative;
+}
+@media only screen and (max-width: 700px) {
+  .card-custom {
+    width: 100% !important;
+  }
+}

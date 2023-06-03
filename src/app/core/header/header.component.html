@@ -7,19 +7,22 @@
     <app-navigation-main></app-navigation-main>
   </div>
 
-  <div class="photoWrapper">
+  <!-- <div class="photoWrapper">
     <img class="photoinside" src="images/photo.png" alt="supposed to be me" />
-  </div>
-  <div class="header_introWrapper">
-    <h1> <span class="blink_me"> ER</span>EKLE  <span class="blink_me">RA</span>TI<span class="blink_me">A</span>NI</h1>
+  </div> -->
+  <div *ngIf="isMyCoverLetterShown" class="header_introWrapper">
+    <h1>
+      <span class="blink_me"> ER</span>EKLE
+      <span class="blink_me">RA</span>TI<span class="blink_me">A</span>NI
+    </h1>
     <p>aspiring Frontend Developer</p>
     <p class="w-50 m-auto paragraph-desc">
       I'm self-taught Junior Frontend Developer, who potentially wants to become
-      a Fullstack Developer. Right now I have slight experience in the
-      field, but I've already finished many training projects. I got my
-      university degree in marketing field, but I decided to pursue my goal of
-      coding. I love to learn, that's why i have finished public
-      collage and also got various certificates online.
+      a Fullstack Developer. Right now I have slight experience in the field,
+      but I've already finished many training projects. I got my university
+      degree in marketing field, but I decided to pursue my goal of coding. I
+      love to learn, that's why i have finished public collage and also got
+      various certificates online.
     </p>
   </div>
 </header>

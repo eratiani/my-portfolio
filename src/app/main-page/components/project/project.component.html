@@ -1,1 +1,26 @@
-<p>project works!</p>
+<div>
+  <div class="img-wrapper">
+    <img
+      *ngIf="currProject.imgLink"
+      src="../../../../assets/project-{{ currProject.imgLink }}.png"
+      class="card-img-top"
+      alt="{{ currProject.title }}"
+    />
+  </div>
+
+  <div
+    id="`{{ currProject.id }}`"
+    class="card-body d-flex flex-column align-items-center justify-content-end"
+  >
+    <h3 class="card-title">{{ currProject.title }}</h3>
+    <p class="publishDate">created at: {{ currProject.date }}</p>
+    <p>tools used: {{ currProject.tools }}</p>
+    <p class="card-text-paragraph">
+      {{ currProject.description }}
+    </p>
+    <a [routerLink]="'/Home/' + currProject.id" class="btn btn-primary"
+      >More Details</a
+    >
+    <div class="color_highlight" style="height: 20px"></div>
+  </div>
+</div>

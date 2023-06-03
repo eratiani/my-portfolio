@@ -1,0 +1,14 @@
+.cont {
+  background-color: black;
+}
+.img-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+}
+.img-wrapper > img {
+  max-width: 100%;
+  width: auto;
+  max-height: 100%;
+}
