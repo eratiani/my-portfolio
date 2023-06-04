@@ -1,5 +1,7 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { PortfolioItemService } from '../../shared/portfolio-item.service';
+import { Subscription } from 'rxjs';
+import { ScrollService } from 'src/app/core/shared/scroll.service';
 
 export interface project {
   id: number;
@@ -10,20 +12,42 @@ export interface project {
   repoLink: string;
   tools: string;
   imgLink?: string;
+  sharelink?: string;
 }
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css'],
 })
-export class ProjectsComponent {
+export class ProjectsComponent implements OnInit, OnDestroy {
   projectIndex: number = 0;
   currProject: project[] = [];
   itemsToShow!: number;
-
-  constructor(private projects: PortfolioItemService) {
+  private scrollSubscription!: Subscription;
+  constructor(
+    private projects: PortfolioItemService,
+    private scrollService: ScrollService
+  ) {
     this.itemsToShow = this.checkScreenWidth();
     this.render(this.itemsToShow);
+  }
+  ngOnInit(): void {
+    this.scrollSubscription = this.scrollService
+      .getScrollObservable()
+      .subscribe((section: string) => {
+        if (section === 'experience') {
+          this.scrollToContact();
+        }
+      });
+  }
+  ngOnDestroy(): void {
+    this.scrollSubscription.unsubscribe();
+  }
+  scrollToContact() {
+    const contactElement = document.getElementById('experience');
+    if (contactElement) {
+      contactElement.scrollIntoView({ behavior: 'smooth' });
+    }
   }
   @HostListener('window:resize', ['$event'])
   onResize(event: Event) {

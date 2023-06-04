@@ -1,14 +1,33 @@
 .burgerList {
-    display: flex;
-    list-style: none;
-  }
-  .burgerList li button {
-    display: inline-block;
-    padding: 5px;
-    text-decoration: none;
-    color: white !important;
-    transition: all 2s;
-  }
-  .burgerList li button:hover {
-    color: rgb(198, 53, 53) !important;
-  }
+  display: flex;
+  list-style: none;
+}
+.burgerList li button {
+  display: inline-block;
+  padding: 5px;
+  text-decoration: none;
+  color: white !important;
+  transition: all 2s;
+}
+.burgerList li button:hover {
+  color: rgb(198, 53, 53) !important;
+}
+.navbar-nav li a:hover {
+  color: aqua !important;
+  transition: all 1s;
+}
+.navbar-nav li a {
+  transition: all 0.7s;
+}
+.display-none {
+  display: none !important;
+}
+.nav-toggle {
+  position: absolute;
+  top: 50px;
+  right: -12px;
+  text-align: end;
+  padding: 15px;
+  background-color: antiquewhite !important;
+  transition: all 0.7s;
+}

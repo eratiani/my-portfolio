@@ -1,20 +1,30 @@
-<header id="header">
+<header class="container" id="header">
   <div class="headerNav">
     <div class="navText">
-      <p>country</p>
-      <h4>georgia/tbilisi</h4>
+      <p class="text-info">country</p>
+      <h4 class="text-info">georgia/tbilisi</h4>
     </div>
-    <app-navigation-main></app-navigation-main>
+    <app-navigation-main
+      *ngIf="this.isMyCoverLetterShown"
+    ></app-navigation-main>
+    <button
+      *ngIf="!this.isMyCoverLetterShown"
+      routerLink="/"
+      type="button"
+      class="btn btn-primary"
+    >
+      go back
+    </button>
   </div>
 
   <!-- <div class="photoWrapper">
     <img class="photoinside" src="images/photo.png" alt="supposed to be me" />
   </div> -->
+  <h1 routerLink="/" style="cursor: pointer" class="text-info text-center">
+    <span class="blink_me"> ER</span>EKLE
+    <span class="blink_me">RA</span>TI<span class="blink_me">A</span>NI
+  </h1>
   <div *ngIf="isMyCoverLetterShown" class="header_introWrapper">
-    <h1>
-      <span class="blink_me"> ER</span>EKLE
-      <span class="blink_me">RA</span>TI<span class="blink_me">A</span>NI
-    </h1>
     <p>aspiring Frontend Developer</p>
     <p class="w-50 m-auto paragraph-desc">
       I'm self-taught Junior Frontend Developer, who potentially wants to become

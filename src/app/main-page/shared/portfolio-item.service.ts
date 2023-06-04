@@ -17,6 +17,8 @@ export class PortfolioItemService {
       repoLink: 'https://github.com/eratiani/airways/pull/2',
       tools: 'Angular',
       imgLink: '19',
+      sharelink:
+        'https://www.awesomescreenshot.com/video/17891144?key=18d6c1ddd1f8c20d130f0aed3dd3dd64',
     },
     {
       id: 18,

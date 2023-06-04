@@ -1,30 +1,37 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 import { PortfolioItemService } from 'src/app/main-page/shared/portfolio-item.service';
+import { ScrollService } from '../shared/scroll.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
+  private scrollSubscription!: Subscription;
   constructor(
-    private renderer: Renderer2,
-    private portItem: PortfolioItemService
+    private portItem: PortfolioItemService,
+    private scrollService: ScrollService
   ) {}
   isMyCoverLetterShown!: boolean;
   ngOnInit(): void {
     this.isMyCoverLetterShown = this.portItem.onMainPage;
+    this.scrollSubscription = this.scrollService
+      .getScrollObservable()
+      .subscribe((section: string) => {
+        if (section === 'header') {
+          this.scrollToContact();
+        }
+      });
   }
-  smoothScrollTar(event: MouseEvent) {
-    if (!event.target) return;
-    const targetId = (event.target as HTMLElement).classList[0]; // Assuming classList[0] contains the target class
-    const targetElement = document.getElementById(targetId);
-
-    if (targetElement) {
-      this.renderer.setProperty(targetElement, 'scrollTop', 0);
-      this.renderer.setProperty(targetElement, 'scrollLeft', 0);
-      this.renderer.setStyle(targetElement, 'scrollBehavior', 'smooth');
-      targetElement.scrollIntoView();
+  ngOnDestroy(): void {
+    this.scrollSubscription.unsubscribe();
+  }
+  scrollToContact() {
+    const contactElement = document.getElementById('header');
+    if (contactElement) {
+      contactElement.scrollIntoView({ behavior: 'smooth' });
     }
   }
 }

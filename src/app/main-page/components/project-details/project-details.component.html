@@ -1,6 +1,6 @@
 <div class="cont">
   <app-header></app-header>
-  <div class="text-info container py-4">
+  <div style="min-height: 85vh" class="text-info container py-4">
     <div class="img-wrapper">
       <img
         *ngIf="currProject.imgLink"
@@ -28,6 +28,12 @@
           [href]="currProject.deploylink"
           class="btn btn-primary mx-2"
           >Visit WebSite</a
+        >
+        <a
+          *ngIf="currProject.sharelink"
+          [href]="currProject.sharelink"
+          class="btn btn-primary mx-2"
+          >See Video</a
         >
         <a [href]="currProject.repoLink" class="btn btn-primary">Repository</a>
       </div>
