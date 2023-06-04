@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ScrollService } from '../shared/scroll.service';
 
 @Component({
@@ -7,17 +7,14 @@ import { ScrollService } from '../shared/scroll.service';
   styleUrls: ['./navigation-main.component.css'],
 })
 export class NavigationMainComponent implements OnInit {
-  constructor(
-    private elementRef: ElementRef,
-    private scrollService: ScrollService
-  ) {}
+  constructor(private scrollService: ScrollService) {}
   nav!: Element;
   screenWidth!: number;
   ngOnInit(): void {
     this.nav = document.querySelector('.nav-custom') as Element;
-    const screenWidth = window.innerWidth;
+    this.screenWidth = window.innerWidth;
     if (!this.nav) return;
-    this.Render(this.nav, screenWidth);
+    this.Render(this.nav, this.screenWidth);
   }
   @HostListener('window:resize', ['$event'])
   onResize(event: Event) {

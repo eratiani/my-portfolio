@@ -2,16 +2,7 @@
   display: flex;
   list-style: none;
 }
-.burgerList li button {
-  display: inline-block;
-  padding: 5px;
-  text-decoration: none;
-  color: white !important;
-  transition: all 2s;
-}
-.burgerList li button:hover {
-  color: rgb(198, 53, 53) !important;
-}
+
 .navbar-nav li a:hover {
   color: aqua !important;
   transition: all 1s;
