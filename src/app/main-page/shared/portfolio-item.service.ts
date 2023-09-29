@@ -43,7 +43,7 @@ export class PortfolioItemService {
     },
     {
       id: 23,
-      title: 'parking lot app',
+      title: 'music app',
       description:
         'this is my Project for Rs School node.js course finished with certificate ',
       date: 'Jul 28, 2023',
