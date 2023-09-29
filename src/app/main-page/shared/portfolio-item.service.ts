@@ -33,6 +33,25 @@ export class PortfolioItemService {
       imgLink: '18',
     },
     {
+      id: 22,
+      title: 'parking lot app',
+      description: 'this is my latest project, parking lot app backand ',
+      date: 'Sep 28, 2023',
+      repoLink: 'https://github.com/eratiani/parking-lot-app',
+      tools: 'Node.js/Nest.js/Prisma/Docker',
+      imgLink: '22',
+    },
+    {
+      id: 23,
+      title: 'parking lot app',
+      description:
+        'this is my Project for Rs School node.js course finished with certificate ',
+      date: 'Jul 28, 2023',
+      repoLink: 'https://github.com/eratiani/nodejs2023Q2-servicep',
+      tools: 'Node.js/Nest.js/Prisma/Docker',
+      imgLink: '23',
+    },
+    {
       id: 17,
       title: 'project-management-app',
       description:
@@ -43,6 +62,17 @@ export class PortfolioItemService {
       repoLink: 'https://github.com/eratiani/project-management-app',
       tools: 'Angular',
       imgLink: '17',
+    },
+    {
+      id: 21,
+      title: 'React',
+      description:
+        'this is project that i build as technical task for freelance, data is pulled from firabase database',
+      date: 'Sep 15, 2023',
+      repoLink: 'https://github.com/eratiani/react-project',
+      tools: 'React/Firebase/Vercel',
+      imgLink: '21',
+      deploylink: 'https://react-project-eight-bay.vercel.app',
     },
     {
       id: 1,
