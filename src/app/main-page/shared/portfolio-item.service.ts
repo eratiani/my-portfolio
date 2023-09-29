@@ -47,7 +47,7 @@ export class PortfolioItemService {
       description:
         'this is my Project for Rs School node.js course finished with certificate ',
       date: 'Jul 28, 2023',
-      repoLink: 'https://github.com/eratiani/nodejs2023Q2-servicep',
+      repoLink: 'https://github.com/eratiani/nodejs2023Q2-service',
       tools: 'Node.js/Nest.js/Prisma/Docker',
       imgLink: '23',
     },
