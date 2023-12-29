@@ -9,6 +9,17 @@ export class PortfolioItemService {
   constructor() {}
   projects: project[] = [
     {
+      id: 24,
+      title: 'simple blog app',
+      description:
+        'this is my latest project blog app for RedBerry. app is for  creating and updating blogs. time to finish project 1 week',
+      date: 'dec 29, 2023',
+      repoLink: 'https://github.com/eratiani/Blog',
+      tools: 'Angular',
+      imgLink: '24',
+      sharelink: 'https://eratiani-portfolio.web.app',
+    },
+    {
       id: 19,
       title: 'Airways',
       description:
