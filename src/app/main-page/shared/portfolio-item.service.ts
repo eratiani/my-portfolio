@@ -17,7 +17,7 @@ export class PortfolioItemService {
       repoLink: 'https://github.com/eratiani/Blog',
       tools: 'Angular',
       imgLink: '24',
-      sharelink: 'https://eratiani-portfolio.web.app',
+      deploylink: 'https://eratiani-portfolio.web.app',
     },
     {
       id: 19,
