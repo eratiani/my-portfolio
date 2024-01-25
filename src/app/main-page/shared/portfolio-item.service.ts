@@ -20,6 +20,17 @@ export class PortfolioItemService {
       deploylink: 'https://redberry-blog.web.app',
     },
     {
+      id: 25,
+      title: 'TBC/USAID',
+      description:
+        'project for tbc bank technical task. this project showcases my experience in angular and continues growth over the years',
+      date: 'jan 28, 2024',
+      repoLink: 'https://github.com/eratiani/USAID',
+      tools: 'Angular',
+      imgLink: '25',
+      deploylink: 'https://usaid-project.web.app/USAID',
+    },
+    {
       id: 19,
       title: 'Airways',
       description:
