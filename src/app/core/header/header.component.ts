@@ -1,21 +1,31 @@
-import { Component, OnDestroy, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+
+import { ResizeListenerService } from '../services/resize-listener.service';
 import { PortfolioItemService } from 'src/app/main-page/shared/portfolio-item.service';
 import { ScrollService } from '../shared/scroll.service';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css'],
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit, OnDestroy {
+  widowPosY!: number;
+  windowWidth!: number;
+  windowPosYSub!: Subscription;
+  windowWidthSub!: Subscription;
+  isMyCoverLetterShown!: boolean;
   private scrollSubscription!: Subscription;
   constructor(
+    private scrollServ: ResizeListenerService,
     private portItem: PortfolioItemService,
     private scrollService: ScrollService
   ) {}
-  isMyCoverLetterShown!: boolean;
+
   ngOnInit(): void {
+    this.widowPosY = this.scrollServ.getScrollPosition();
+    this.windowWidth = this.scrollServ.getScreenWidth();
     this.isMyCoverLetterShown = this.portItem.onMainPage;
     this.scrollSubscription = this.scrollService
       .getScrollObservable()
@@ -24,8 +34,17 @@ export class HeaderComponent implements OnInit, OnDestroy {
           this.scrollToContact();
         }
       });
+    this.windowPosYSub = this.scrollServ.scrollPosition.subscribe(
+      (val) => (this.widowPosY = val)
+    );
+
+    this.windowWidthSub = this.scrollServ.screenWidth.subscribe(
+      (val) => (this.windowWidth = val)
+    );
   }
   ngOnDestroy(): void {
+    this.windowPosYSub.unsubscribe();
+    this.windowWidthSub.unsubscribe();
     this.scrollSubscription.unsubscribe();
   }
   scrollToContact() {

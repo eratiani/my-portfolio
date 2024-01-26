@@ -10,6 +10,7 @@ import { SkillsComponent } from './components/skills/skills.component';
 import { ProjectComponent } from './components/project/project.component';
 import { OtherComponent } from './components/other/other.component';
 import { ProjectDetailsComponent } from './components/project-details/project-details.component';
+import { AboutMeComponent } from './about-me/about-me.component';
 @NgModule({
   declarations: [
     MainViewComponent,
@@ -18,6 +19,7 @@ import { ProjectDetailsComponent } from './components/project-details/project-de
     ProjectComponent,
     OtherComponent,
     ProjectDetailsComponent,
+    AboutMeComponent,
   ],
   imports: [CommonModule, CoreModule, MatSidenavModule, RouterModule],
 })

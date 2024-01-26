@@ -1,0 +1,71 @@
+.container__burger {
+  width: 32px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .burger__menu {
+    width: 26px;
+    height: 21px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 5;
+    cursor: pointer;
+    transition: transform 0.33s ease-out;
+    .burger__center {
+      border-radius: 1.5px;
+      width: 100%;
+      height: 3px;
+      background-color: rgb(219, 219, 219);
+    }
+    .burger__before {
+      border-radius: 1.5px;
+      width: 50%;
+      height: 3px;
+      background-color: rgb(219, 219, 219);
+      transform-origin: right;
+      transition: transform 0.33s cubic-bezier(0.54, -0.81, 0.57, 0.57);
+    }
+
+    .burger__after {
+      border-radius: 1.5px;
+      align-self: flex-end;
+      width: 50%;
+      height: 3px;
+      background-color: rgb(219, 219, 219);
+      transform-origin: left;
+      transition: transform 0.33s cubic-bezier(0.54, -0.81, 0.57, 0.57);
+    }
+  }
+  .overlay {
+    visibility: inherit;
+    height: 100vh;
+    background-color: rgba(22, 22, 22, 0.62);
+    opacity: 0;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    transition: opacity 2.3s ease;
+  }
+}
+.burger__rotate--main {
+  transform: rotate(-45deg);
+}
+.burger__rotate--before {
+  background-color: rgba(118, 118, 118, 1) !important;
+  transform: rotate(-90deg) translateX(4px);
+}
+.burger__rotate--after {
+  background-color: rgba(118, 118, 118, 1) !important;
+  transform: rotate(-90deg) translateX(-4px);
+}
+.bg__burger--lines {
+  background-color: rgba(118, 118, 118, 1) !important;
+}
+.overlay--active {
+  pointer-events: auto !important;
+  opacity: 1 !important;
+}

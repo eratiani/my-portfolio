@@ -1,6 +1,8 @@
 .main_wrapper {
-  background-color: black;
   color: white;
+  overflow: hidden;
+  margin-top: 69px;
+  background-color: rgb(26, 30, 31);
 }
 .sec_1 {
   text-transform: uppercase;
@@ -15,7 +17,11 @@
   font-size: 20px;
   list-style: none;
 }
-
+@media (min-width: 1440px) {
+  .main_wrapper {
+    margin-top: 84px;
+  }
+}
 @media only screen and (max-width: 1300px) {
   .list-description {
     width: 50% !important;
@@ -25,4 +31,8 @@
   .list-description {
     width: 80% !important;
   }
+}
+
+.container--slider {
+  background-color: rgb(43, 43, 43);
 }

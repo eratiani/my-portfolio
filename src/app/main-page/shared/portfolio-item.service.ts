@@ -245,6 +245,7 @@ export class PortfolioItemService {
         'this was task for RS School js course, it was a great learning expirience for javascript core functions, finished every task listed',
       date: 'Jan 21, 2023',
       repoLink: 'https://github.com/eratiani/core-js-101',
+      imgLink: '20',
       tools: 'Javascript',
     },
     {

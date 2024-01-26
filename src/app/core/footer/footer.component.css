@@ -1,6 +1,6 @@
 .footer {
   color: white;
-  background-color: gray;
+  background-color: rgb(34, 34, 34);
   display: flex;
   justify-content: space-between;
   font-size: 20px;

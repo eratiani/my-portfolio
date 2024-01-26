@@ -4,6 +4,7 @@
 
   <div class="cards__container d-flex justify-content-between posRel">
     <app-project
+      [@slideAnimation]="activeState"
       class="card w-50 mx-4 bg-transparent text-info card-custom"
       *ngFor="let project of currProject"
       [currProject]="project"

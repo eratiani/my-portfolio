@@ -1,38 +1,17 @@
-<header class="container" id="header">
-  <div class="headerNav">
-    <div class="navText">
-      <p class="text-info">country</p>
-      <h4 class="text-info">georgia/tbilisi</h4>
-    </div>
-    <app-navigation-main
-      *ngIf="this.isMyCoverLetterShown"
-    ></app-navigation-main>
-    <button
-      *ngIf="!this.isMyCoverLetterShown"
-      routerLink="/"
-      type="button"
-      class="btn btn-primary"
-    >
-      go back
-    </button>
-  </div>
-
-  <!-- <div class="photoWrapper">
-    <img class="photoinside" src="images/photo.png" alt="supposed to be me" />
-  </div> -->
-  <h1 routerLink="/" style="cursor: pointer" class="text-info text-center">
-    <span class="blink_me"> ER</span>EKLE
-    <span class="blink_me">RA</span>TI<span class="blink_me">A</span>NI
-  </h1>
-  <div *ngIf="isMyCoverLetterShown" class="header_introWrapper">
-    <p>aspiring Frontend Developer</p>
-    <p class="w-50 m-auto paragraph-desc">
-      I'm self-taught Junior Frontend Developer, who potentially wants to become
-      a Fullstack Developer. Right now I have slight experience in the field,
-      but I've already finished many training projects. I got my university
-      degree in marketing field, but I decided to pursue my goal of coding. I
-      love to learn, that's why i have finished public collage and also got
-      various certificates online.
-    </p>
+<header
+  [ngClass]="{
+    ' scrolled': widowPosY > 84 && windowWidth > 768,
+    ' hidden': widowPosY > 87 && windowWidth < 768
+  }"
+  class="container__header"
+>
+  <div class="container__navigation">
+    <h1 routerLink="/" class="header__logo--link">
+      <div class="header__logo--img">
+        <span class="blink_me"> ER</span>EKLE
+        <span class="blink_me">RA</span>TI<span class="blink_me">A</span>NI
+      </div>
+    </h1>
+    <app-navigation></app-navigation>
   </div>
 </header>

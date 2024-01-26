@@ -2,6 +2,7 @@ import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { PortfolioItemService } from '../../shared/portfolio-item.service';
 import { Subscription } from 'rxjs';
 import { ScrollService } from 'src/app/core/shared/scroll.service';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 export interface project {
   id: number;
@@ -18,6 +19,15 @@ export interface project {
   selector: 'app-projects',
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css'],
+  animations: [
+    trigger('slideAnimation', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('2000ms ease-in-out', style({ opacity: 1 })),
+      ]),
+      transition(':leave', [style({ opacity: 1 }), style({ opacity: 0 })]),
+    ]),
+  ],
 })
 export class ProjectsComponent implements OnInit, OnDestroy {
   projectIndex: number = 0;
@@ -30,6 +40,9 @@ export class ProjectsComponent implements OnInit, OnDestroy {
   ) {
     this.itemsToShow = this.checkScreenWidth();
     this.render(this.itemsToShow);
+  }
+  get activeState(): string {
+    return this.projectIndex.toString();
   }
   ngOnInit(): void {
     this.scrollSubscription = this.scrollService

@@ -1,0 +1,21 @@
+@use "../../../../../../styles.scss" as mainStyle;
+.nav__mobile--ul {
+  list-style: none;
+  padding: 0;
+  a {
+    display: block;
+    text-decoration: none;
+    color: rgb(244, 244, 244);
+    padding: 15px;
+    cursor: pointer;
+    text-align: right;
+    font-size: #{mainStyle.$primary_font-size * 7}px;
+    transition: color 0.33s ease-in-out;
+  }
+  a:hover {
+    color: mainStyle.$btn-active;
+  }
+}
+.active {
+  color: mainStyle.$btn-active !important;
+}
