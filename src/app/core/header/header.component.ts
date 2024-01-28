@@ -29,13 +29,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.widowPosY = this.scrollServ.getScrollPosition();
     this.windowWidth = this.scrollServ.getScreenWidth();
     this.isMyCoverLetterShown = this.portItem.onMainPage;
-    this.scrollSubscription = this.scrollService
-      .getScrollObservable()
-      .subscribe((section: string) => {
+    this.scrollSubscription = this.scrollService.scrollSubject.subscribe(
+      (section: string) => {
         if (section === 'header') {
           this.scrollToContact();
         }
-      });
+      }
+    );
     this.windowPosYSub = this.scrollServ.scrollPosition.subscribe(
       (val) => (this.widowPosY = val.current)
     );
@@ -54,7 +54,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
     const contactElement = document.getElementById('header');
 
     if (contactElement) {
-      console.log(contactElement);
       contactElement.scrollIntoView({ behavior: 'smooth' });
     }
   }

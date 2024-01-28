@@ -5,13 +5,9 @@ import { Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class ScrollService {
-  private scrollSubject = new Subject<string>();
+  public scrollSubject: Subject<string> = new Subject<string>();
 
   scrollSection(section: string) {
     this.scrollSubject.next(section);
-  }
-
-  getScrollObservable() {
-    return this.scrollSubject.asObservable();
   }
 }

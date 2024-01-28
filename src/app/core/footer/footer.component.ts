@@ -13,13 +13,13 @@ export class FooterComponent implements OnInit, OnDestroy {
   constructor(private scrollService: ScrollService) {}
 
   ngOnInit() {
-    this.scrollSubscription = this.scrollService
-      .getScrollObservable()
-      .subscribe((section: string) => {
+    this.scrollSubscription = this.scrollService.scrollSubject.subscribe(
+      (section: string) => {
         if (section === 'contact') {
           this.scrollToContact();
         }
-      });
+      }
+    );
   }
 
   ngOnDestroy() {

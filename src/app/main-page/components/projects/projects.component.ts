@@ -45,13 +45,13 @@ export class ProjectsComponent implements OnInit, OnDestroy {
     return this.projectIndex.toString();
   }
   ngOnInit(): void {
-    this.scrollSubscription = this.scrollService
-      .getScrollObservable()
-      .subscribe((section: string) => {
+    this.scrollSubscription = this.scrollService.scrollSubject.subscribe(
+      (section: string) => {
         if (section === 'experience') {
           this.scrollToContact();
         }
-      });
+      }
+    );
   }
   ngOnDestroy(): void {
     this.scrollSubscription.unsubscribe();
