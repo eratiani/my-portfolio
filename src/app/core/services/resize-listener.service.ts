@@ -6,8 +6,9 @@ import { Subject } from 'rxjs';
 })
 export class ResizeListenerService {
   public screenWidth: Subject<number> = new Subject<number>();
-  public scrollPosition: Subject<number> = new Subject<number>();
-
+  public scrollPosition: Subject<{ current: number; isScrollingUp: boolean }> =
+    new Subject<{ current: number; isScrollingUp: boolean }>();
+  private previousScrollPosition!: number;
   constructor() {
     window.addEventListener('resize', this.onResize.bind(this));
     window.addEventListener('scroll', this.onScroll.bind(this));
@@ -17,7 +18,12 @@ export class ResizeListenerService {
     this.screenWidth.next(window.innerWidth);
   }
   private onScroll() {
-    this.scrollPosition.next(window.scrollY);
+    const currentScrollPosition = window.scrollY;
+    const isScrollingUp = currentScrollPosition < this.previousScrollPosition;
+
+    this.scrollPosition.next({ current: currentScrollPosition, isScrollingUp });
+
+    this.previousScrollPosition = currentScrollPosition;
   }
 
   getScreenWidth(): number {

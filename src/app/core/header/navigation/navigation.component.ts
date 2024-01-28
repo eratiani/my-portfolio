@@ -11,6 +11,7 @@ import { ResizeListenerService } from '../../services/resize-listener.service';
 export class NavigationComponent implements OnInit, OnDestroy {
   widowWidth!: number;
   widowWidthSub!: Subscription;
+
   constructor(private windowWidthServ: ResizeListenerService) {}
   ngOnInit(): void {
     this.widowWidth = this.windowWidthServ.getScreenWidth();

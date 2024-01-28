@@ -10,6 +10,8 @@ export class DesktopComponent {
   constructor(private scrollService: ScrollService) {}
 
   navigateToSection(sectionId: string): void {
+    console.log(sectionId);
+
     this.scrollService.scrollSection(sectionId);
   }
 }

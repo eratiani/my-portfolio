@@ -16,6 +16,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   windowPosYSub!: Subscription;
   windowWidthSub!: Subscription;
   isMyCoverLetterShown!: boolean;
+  isScrollingUp!: boolean;
+
   private scrollSubscription!: Subscription;
   constructor(
     private scrollServ: ResizeListenerService,
@@ -35,12 +37,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
         }
       });
     this.windowPosYSub = this.scrollServ.scrollPosition.subscribe(
-      (val) => (this.widowPosY = val)
+      (val) => (this.widowPosY = val.current)
     );
 
-    this.windowWidthSub = this.scrollServ.screenWidth.subscribe(
-      (val) => (this.windowWidth = val)
-    );
+    this.windowPosYSub = this.scrollServ.scrollPosition.subscribe((val) => {
+      this.widowPosY = val.current;
+      this.isScrollingUp = val.isScrollingUp;
+    });
   }
   ngOnDestroy(): void {
     this.windowPosYSub.unsubscribe();
@@ -49,7 +52,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
   scrollToContact() {
     const contactElement = document.getElementById('header');
+
     if (contactElement) {
+      console.log(contactElement);
       contactElement.scrollIntoView({ behavior: 'smooth' });
     }
   }
