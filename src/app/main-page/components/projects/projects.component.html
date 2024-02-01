@@ -1,25 +1,26 @@
-<section id="experience" class="text-center">
-  <h2>experience:</h2>
-  <p>various pages that i have created and uploaded on github</p>
-
-  <div class="cards__container d-flex justify-content-between posRel">
-    <app-project
-      [@slideAnimation]="activeState"
-      class="card w-50 mx-4 bg-transparent text-info card-custom"
-      *ngFor="let project of currProject"
-      [currProject]="project"
-    ></app-project>
-    <div class="arrows d-flex justify-content-between align-items-center">
-      <img
-        (click)="moveLeft()"
-        src="../../../../assets/left-arrow.png"
-        alt="left"
-      />
-      <img
-        (click)="moveRIght()"
-        src="../../../../assets/right-arrow.png"
-        alt="right"
-      />
-    </div>
+<section id="experience" class="container--slider">
+  <h2 class="slider--header">experience:</h2>
+  <h2 class="slider--header">
+    various pages that i have created and uploaded on github
+  </h2>
+  <app-buttons
+    *ngIf="pageSize >= 768"
+    (sliderBtnClick)="handleButtonClick($event)"
+    class="slider--buttons"
+  ></app-buttons>
+  <div
+    class="sub-container__slider"
+    (touchstart)="onMouseDown($event)"
+    (touchmove)="onMouseMove($event)"
+    (touchend)="onMouseUp()"
+  >
+    <ng-container
+      *ngFor="let project of sliders.slice(0, pageSize < 1024 ? 1 : 3)"
+    >
+      <app-project
+        [@slideAnimation]="activeState"
+        [currProject]="project"
+      ></app-project>
+    </ng-container>
   </div>
 </section>

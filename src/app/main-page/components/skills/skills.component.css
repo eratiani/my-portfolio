@@ -11,8 +11,8 @@
   font-size: 20px;
   list-style: none;
 }
-@media only screen and (max-width: 655px) {
+@media only screen and (max-width: 1024px) {
   .list-description {
-    width: 50% !important;
+    width: 87.5vw !important;
   }
 }

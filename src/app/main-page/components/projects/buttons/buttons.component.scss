@@ -1,0 +1,14 @@
+.container--btns {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  img {
+    width: 18px;
+    height: 35.14px;
+    cursor: pointer;
+    z-index: 1;
+  }
+  .btn--right {
+    transform: rotateY(180deg);
+  }
+}

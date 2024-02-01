@@ -280,4 +280,10 @@ export class PortfolioItemService {
       imgLink: '20',
     },
   ];
+  getSliderItems() {
+    return [...this.projects];
+  }
+  getSliderItem(id: number) {
+    return this.projects.filter((projects) => projects.id === id)[0];
+  }
 }

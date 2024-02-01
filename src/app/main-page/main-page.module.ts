@@ -11,6 +11,7 @@ import { ProjectComponent } from './components/project/project.component';
 import { OtherComponent } from './components/other/other.component';
 import { ProjectDetailsComponent } from './components/project-details/project-details.component';
 import { AboutMeComponent } from './about-me/about-me.component';
+import { ButtonsComponent } from './components/projects/buttons/buttons.component';
 @NgModule({
   declarations: [
     MainViewComponent,
@@ -20,6 +21,7 @@ import { AboutMeComponent } from './about-me/about-me.component';
     OtherComponent,
     ProjectDetailsComponent,
     AboutMeComponent,
+    ButtonsComponent,
   ],
   imports: [CommonModule, CoreModule, MatSidenavModule, RouterModule],
 })

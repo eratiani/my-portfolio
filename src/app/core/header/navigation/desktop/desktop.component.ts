@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { ScrollService } from 'src/app/core/shared/scroll.service';
 
 @Component({
@@ -7,9 +8,10 @@ import { ScrollService } from 'src/app/core/shared/scroll.service';
   styleUrls: ['./desktop.component.scss'],
 })
 export class DesktopComponent {
-  constructor(private scrollService: ScrollService) {}
+  constructor(private scrollService: ScrollService, private router: Router) {}
 
   navigateToSection(sectionId: string): void {
     this.scrollService.scrollSection(sectionId);
+    this.router.navigate(['/']);
   }
 }

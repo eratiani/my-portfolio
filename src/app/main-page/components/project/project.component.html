@@ -1,26 +1,24 @@
-<div>
-  <div class="img-wrapper">
+<div class="container--project">
+  <div class="container--img">
     <img
-      *ngIf="currProject.imgLink"
+      appLazyLoading
+      imgSrc="../../../../assets/project-{{ currProject.imgLink }}.png"
       src="../../../../assets/project-{{ currProject.imgLink }}.png"
-      class="card-img-top"
       alt="{{ currProject.title }}"
+      class="project--img"
     />
   </div>
-
-  <div
-    id="`{{ currProject.id }}`"
-    class="card-body d-flex flex-column align-items-center justify-content-end"
-  >
-    <h3 class="card-title">{{ currProject.title }}</h3>
+  <div id="`{{ currProject.id }}`" class="container__project--text">
+    <h2 class="project--title">{{ currProject.title }}</h2>
     <p class="publishDate">created at: {{ currProject.date }}</p>
     <p>tools used: {{ currProject.tools }}</p>
     <p class="card-text-paragraph">
       {{ currProject.description }}
     </p>
-    <a [routerLink]="'/Home/' + currProject.id" class="btn btn-primary"
+  </div>
+  <div class="container--btn">
+    <a [routerLink]="'/Home/' + currProject.id" class="project__details--btn"
       >More Details</a
     >
-    <div class="color_highlight" style="height: 20px"></div>
   </div>
 </div>

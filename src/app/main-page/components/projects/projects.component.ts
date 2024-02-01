@@ -1,8 +1,9 @@
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { PortfolioItemService } from '../../shared/portfolio-item.service';
 import { Subscription } from 'rxjs';
-import { ScrollService } from 'src/app/core/shared/scroll.service';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { ResizeListenerService } from 'src/app/core/services/resize-listener.service';
+import { ScrollService } from 'src/app/core/shared/scroll.service';
 
 export interface project {
   id: number;
@@ -18,7 +19,7 @@ export interface project {
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.css'],
+  styleUrls: ['./projects.component.scss'],
   animations: [
     trigger('slideAnimation', [
       transition(':enter', [
@@ -30,21 +31,25 @@ export interface project {
   ],
 })
 export class ProjectsComponent implements OnInit, OnDestroy {
-  projectIndex: number = 0;
-  currProject: project[] = [];
-  itemsToShow!: number;
+  sliders!: project[];
+  tempSlider: project[] = [];
+  pageSize!: number;
+  windowWidthSub!: Subscription;
+  private activeIndex = 0;
+  private intervalId!: ReturnType<typeof setInterval>;
+  private startX = 0;
+  private slideCount = 0;
   private scrollSubscription!: Subscription;
+
   constructor(
-    private projects: PortfolioItemService,
+    private sliderServ: PortfolioItemService,
+    private resizeServ: ResizeListenerService,
     private scrollService: ScrollService
-  ) {
-    this.itemsToShow = this.checkScreenWidth();
-    this.render(this.itemsToShow);
-  }
-  get activeState(): string {
-    return this.projectIndex.toString();
-  }
+  ) {}
   ngOnInit(): void {
+    this.sliders = this.sliderServ.getSliderItems();
+    this.tempSlider = this.sliders;
+    this.pageSize = this.resizeServ.getScreenWidth();
     this.scrollSubscription = this.scrollService.scrollSubject.subscribe(
       (section: string) => {
         if (section === 'experience') {
@@ -52,9 +57,18 @@ export class ProjectsComponent implements OnInit, OnDestroy {
         }
       }
     );
+    this.windowWidthSub = this.resizeServ.screenWidth.subscribe(
+      (val) => (this.pageSize = val)
+    );
+    this.startInterval();
   }
   ngOnDestroy(): void {
+    clearInterval(this.intervalId);
     this.scrollSubscription.unsubscribe();
+    this.windowWidthSub.unsubscribe();
+  }
+  get activeState(): string {
+    return this.activeIndex.toString();
   }
   scrollToContact() {
     const contactElement = document.getElementById('experience');
@@ -62,45 +76,69 @@ export class ProjectsComponent implements OnInit, OnDestroy {
       contactElement.scrollIntoView({ behavior: 'smooth' });
     }
   }
-  @HostListener('window:resize', ['$event'])
-  onResize(event: Event) {
-    this.itemsToShow = this.checkScreenWidth();
-    this.render(this.itemsToShow);
+  handleButtonClick(event: boolean) {
+    if (event) {
+      this.nextSlide();
+    } else {
+      this.prevSlide();
+    }
+    this.restartInterval();
+  }
+  nextSlide() {
+    const slidesPerSet = 3;
+    this.activeIndex =
+      (this.activeIndex + 1) % Math.ceil(this.tempSlider.length / slidesPerSet);
+    const startIdx = this.activeIndex * slidesPerSet;
+    this.sliders = this.tempSlider.slice(startIdx, startIdx + slidesPerSet);
   }
 
-  moveRIght() {
-    if (this.projects.projects.length < this.itemsToShow) return;
-    this.projectIndex = (this.projectIndex + 1) % this.projects.projects.length;
-    this.render(this.itemsToShow);
-  }
-  checkScreenWidth() {
-    const screenWidth = window.innerWidth;
-    if (screenWidth <= 700) {
-      return 1;
-    } else {
-      return 2;
-    }
-  }
-  moveLeft() {
-    if (this.projects.projects.length < this.itemsToShow) return;
-    this.projectIndex =
-      (this.projectIndex - 1 + this.projects.projects.length) %
-      this.projects.projects.length;
-    this.render(this.itemsToShow);
+  prevSlide() {
+    const slidesPerSet = 3;
+    this.activeIndex =
+      (this.activeIndex -
+        1 +
+        Math.ceil(this.tempSlider.length / slidesPerSet)) %
+      Math.ceil(this.tempSlider.length / slidesPerSet);
+    const startIdx = this.activeIndex * slidesPerSet;
+    this.sliders = this.tempSlider.slice(startIdx, startIdx + slidesPerSet);
   }
 
-  render(numOfItems: number) {
-    const startIndex = this.projectIndex;
-    const endIndex =
-      (this.projectIndex + numOfItems) % this.projects.projects.length;
-    if (startIndex < endIndex && this.projects.projects.length > numOfItems) {
-      this.currProject = this.projects.projects.slice(startIndex, endIndex);
-    } else if (this.projects.projects.length < numOfItems) {
-      this.currProject = this.projects.projects.slice(0);
-    } else {
-      this.currProject = this.projects.projects
-        .slice(startIndex)
-        .concat(this.projects.projects.slice(0, endIndex));
+  onMouseDown(event: TouchEvent) {
+    this.slideCount = 1;
+    this.startX = event.touches[0].clientX;
+  }
+
+  onMouseMove(event: TouchEvent) {
+    if (this.startX === 0 || this.slideCount !== 1) return;
+    this.slideCount += 1;
+    const currTouchX = event.touches[0].clientX;
+    const deltaX = currTouchX - this.startX;
+    if (deltaX >= 1) {
+      this.nextSlide();
+      this.restartInterval();
+    } else if (deltaX <= -1) {
+      this.prevSlide();
+      this.restartInterval();
     }
+  }
+
+  onMouseUp() {
+    this.slideCount = 0;
+    this.startX = 0;
+  }
+
+  private startInterval() {
+    this.intervalId = setInterval(() => {
+      this.nextSlide();
+    }, 4000);
+  }
+
+  private restartInterval() {
+    this.clearInterval();
+    this.startInterval();
+  }
+
+  private clearInterval() {
+    clearInterval(this.intervalId);
   }
 }

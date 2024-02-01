@@ -47,7 +47,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
   ngOnDestroy(): void {
     this.windowPosYSub.unsubscribe();
-    this.windowWidthSub.unsubscribe();
+    // this.windowWidthSub.unsubscribe();
     this.scrollSubscription.unsubscribe();
   }
   scrollToContact() {

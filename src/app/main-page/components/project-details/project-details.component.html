@@ -1,42 +1,37 @@
-<div class="cont">
+<div class="container--main">
   <app-header></app-header>
-  <div style="min-height: 85vh" class="text-info container py-4">
-    <div class="img-wrapper">
+  <div class="container--project">
+    <div class="container--img">
       <img
-        *ngIf="currProject.imgLink"
+        appLazyLoading
+        imgSrc="../../../../assets/project-{{ currProject.imgLink }}.png"
         src="../../../../assets/project-{{ currProject.imgLink }}.png"
-        class="card-img-top"
         alt="{{ currProject.title }}"
+        class="project--img"
       />
     </div>
-
-    <div
-      id="`{{ currProject.id }}`"
-      class="card-body d-flex flex-column align-items-center justify-content-end"
-    >
-      <h3 class="card-title">{{ currProject.title }}</h3>
+    <div id="`{{ currProject.id }}`" class="container__project--text">
+      <h2 class="project--title">{{ currProject.title }}</h2>
       <p class="publishDate">created at: {{ currProject.date }}</p>
       <p>tools used: {{ currProject.tools }}</p>
       <p class="card-text-paragraph">
         {{ currProject.description }}
       </p>
-      <div
-        class="col-xl-3 m-auto d-flex align-items-center justify-content-between"
+    </div>
+    <div class="container--btn">
+      <a
+        *ngIf="currProject.deploylink"
+        [href]="currProject.deploylink"
+        class="btn btn-primary mx-2"
+        >Visit WebSite</a
       >
-        <a
-          *ngIf="currProject.deploylink"
-          [href]="currProject.deploylink"
-          class="btn btn-primary mx-2"
-          >Visit WebSite</a
-        >
-        <a
-          *ngIf="currProject.sharelink"
-          [href]="currProject.sharelink"
-          class="btn btn-primary mx-2"
-          >See Video</a
-        >
-        <a [href]="currProject.repoLink" class="btn btn-primary">Repository</a>
-      </div>
+      <a
+        *ngIf="currProject.sharelink"
+        [href]="currProject.sharelink"
+        class="btn btn-primary mx-2"
+        >See Video</a
+      >
+      <a [href]="currProject.repoLink" class="btn btn-primary">Repository</a>
     </div>
   </div>
   <app-footer></app-footer>

@@ -1,7 +1,11 @@
 .paragraph-desc {
   text-align: center;
   @media (min-width: 768px) {
-    width: 50% !important;
+    width: 87.5vw !important;
+    margin: 0 auto;
+  }
+  @media (min-width: 1024px) {
+    width: 980px !important;
     margin: 0 auto;
   }
 }

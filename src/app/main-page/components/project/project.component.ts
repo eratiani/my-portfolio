@@ -4,7 +4,7 @@ import { project } from '../projects/projects.component';
 @Component({
   selector: 'app-project',
   templateUrl: './project.component.html',
-  styleUrls: ['./project.component.css'],
+  styleUrls: ['./project.component.scss'],
 })
 export class ProjectComponent {
   @Input() currProject!: project;

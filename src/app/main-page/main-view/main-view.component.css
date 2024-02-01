@@ -4,6 +4,19 @@
   margin-top: 69px;
   background-color: rgb(26, 30, 31);
 }
+.container--about {
+  width: 87.5vw;
+  margin: 0 auto;
+}
+.container--skills {
+  width: 87.5vw;
+  margin: 0 auto;
+}
+.container--other {
+  width: 87.5vw;
+  padding-bottom: 50px;
+  margin: 0 auto;
+}
 .sec_1 {
   text-transform: uppercase;
   text-align: center;
