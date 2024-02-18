@@ -36,4 +36,13 @@ export class AboutMeComponent {
   onReadMore() {
     this.readMore = !this.readMore;
   }
+  downloadCV(): void {
+    const fileUrl = "../../../assets/Erekle's Resume.pdf";
+    const link = document.createElement('a');
+    link.href = fileUrl;
+    link.download = "Erekle's Resume";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
 }

@@ -33,7 +33,12 @@
     adaptive professional with a strong commitment to delivering high-quality
     work in front-end development
   </p>
-  <a class="btn btn-primary mt-4 mb-4" (click)="onReadMore()">{{
-    !readMore ? "Read More" : "Read Less"
-  }}</a>
+  <div class="container--btns d-flex">
+    <a class="btn btn-primary mt-4 mb-4 me-4" (click)="onReadMore()">{{
+      !readMore ? "Read More" : "Read Less"
+    }}</a>
+    <a class="btn btn-danger mt-4 mb-4 ms-4" (click)="downloadCV()"
+      >Download CV</a
+    >
+  </div>
 </div>
