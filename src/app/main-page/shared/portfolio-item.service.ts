@@ -31,6 +31,17 @@ export class PortfolioItemService {
       deploylink: 'https://usaid-project.web.app/USAID',
     },
     {
+      id: 26,
+      title: 'World Of Tanks',
+      description:
+        "Dive into the past and witness the evolution of gaming with World of Tanks, a nostalgic gem meticulously crafted using only JavaScript and the elegance of ES6 classes. Building this classic title was not just a development journey; it was a profound exploration of the language's capabilities. Constructing the game exclusively with ES6 classes not only paid homage to its roots but also significantly enhanced my understanding of this powerful programming paradigm, unlocking new levels of efficiency and structure in the development process.",
+      date: 'Feb 18, 2024',
+      repoLink: 'https://github.com/eratiani/tanks_copy',
+      tools: 'javascript',
+      imgLink: '26',
+      deploylink: 'https://worloftanks.web.app',
+    },
+    {
       id: 19,
       title: 'Airways',
       description:

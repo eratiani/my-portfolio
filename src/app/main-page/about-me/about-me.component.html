@@ -1,11 +1,37 @@
-<div class="header_introWrapper">
-  <p class="text-center">aspiring Frontend Developer</p>
-  <p class="w-100 m-auto paragraph-desc">
-    I'm self-taught Junior Frontend Developer, who potentially wants to become a
-    Fullstack Developer. Right now I have slight experience in the field, but
-    I've already finished many training projects. I got my university degree in
-    marketing field, but I decided to pursue my goal of coding. I love to learn,
-    that's why i have finished public collage and also got various certificates
-    online.
+<div id="about" class="header_introWrapper">
+  <p class="h2 mb-4">ABOUT ME</p>
+  <p class="h4 mb-4">
+    Here you will find more information about me, what I do, and my current
+    skills mostly in terms of programming and technology
   </p>
+  <p class="paragraph-desc">
+    I have extensive knowledge and a passionate interest in continually
+    exploring innovations in stimulating fields. My professional experience
+    spans over three years in front-end development, with a primary focus on
+    Angular, including JavaScript and TypeScript. My skills encompass
+    deciphering complex code bases, where I excel in understanding existing
+    processes and efficiently solving related tasks. My ability to quickly adapt
+    to new technologies and methodologies, such as Node.js, Sass, SCSS, REST
+    API, and ES6, allows me to integrate them effectively. I am characterized by
+    critical thinking, a strong work ethic underscored by flexibility, a
+    willingness to take on new responsibilities, a commitment to learning
+    opportunities, and the ability to interact with new systems.
+  </p>
+  <p *ngIf="readMore" class="paragraph-desc">
+    These traits are supported by my interpersonal communication skills,
+    enabling me to collaborate seamlessly with cross-functional teams. I am
+    proficient in version control tools such as Git and GitHub, and I have a
+    solid foundation in web design using HTML, CSS, HTML5, and CSS3. My
+    experience with REST API, JavaScript frameworks, and libraries such as RxJS
+    and JSON API complements my qualifications in front-end development.
+    Additionally, my skills extend to Adobe Photoshop, Adobe Illustrator, and
+    Figma.
+  </p>
+  <p *ngIf="readMore" class="paragraph-desc">
+    In conclusion, my versatile skill set, including but not limited to
+    JavaScript, TypeScript, Angular, Git, positions me as a versatile and
+    adaptive professional with a strong commitment to delivering high-quality
+    work in front-end development
+  </p>
+  <a class="btn btn-primary mt-4 mb-4" (click)="onReadMore()">Read More</a>
 </div>

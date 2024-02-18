@@ -36,18 +36,20 @@ export class HeaderComponent implements OnInit, OnDestroy {
         }
       }
     );
-    this.windowPosYSub = this.scrollServ.scrollPosition.subscribe(
-      (val) => (this.widowPosY = val.current)
+    this.windowWidthSub = this.scrollServ.screenWidth.subscribe(
+      (val) => (this.windowWidth = val)
     );
 
     this.windowPosYSub = this.scrollServ.scrollPosition.subscribe((val) => {
+      console.log(val);
+
       this.widowPosY = val.current;
       this.isScrollingUp = val.isScrollingUp;
     });
   }
   ngOnDestroy(): void {
     this.windowPosYSub.unsubscribe();
-    // this.windowWidthSub.unsubscribe();
+    this.windowWidthSub.unsubscribe();
     this.scrollSubscription.unsubscribe();
   }
   scrollToContact() {
