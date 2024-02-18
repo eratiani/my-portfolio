@@ -6,13 +6,30 @@
   display: flex;
   flex-wrap: wrap;
 }
-.sec_1list li {
+li {
   margin: 10px;
   font-size: 20px;
   list-style: none;
 }
+.list-group-item {
+  transition: all 0.33s ease-in;
+}
+.list-group-item:hover {
+  background-color: rgb(172, 190, 89);
+}
 @media only screen and (max-width: 1024px) {
   .list-description {
     width: 87.5vw !important;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .sec_1list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (min-width: 1440px) {
+    .sec_1 {
+      width: 980px;
+    }
   }
 }

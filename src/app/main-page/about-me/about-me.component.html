@@ -33,5 +33,7 @@
     adaptive professional with a strong commitment to delivering high-quality
     work in front-end development
   </p>
-  <a class="btn btn-primary mt-4 mb-4" (click)="onReadMore()">Read More</a>
+  <a class="btn btn-primary mt-4 mb-4" (click)="onReadMore()">{{
+    !readMore ? "Read More" : "Read Less"
+  }}</a>
 </div>

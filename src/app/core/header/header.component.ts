@@ -41,8 +41,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
     );
 
     this.windowPosYSub = this.scrollServ.scrollPosition.subscribe((val) => {
-      console.log(val);
-
       this.widowPosY = val.current;
       this.isScrollingUp = val.isScrollingUp;
     });
